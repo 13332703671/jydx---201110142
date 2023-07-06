@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.oneice.ssm.crud.dao.SalaryMapper">
+
+    <resultMap id="BaseResultMap" type="pers.oneice.ssm.crud.pojo.Salary">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="employeeId" column="employee_id" jdbcType="VARCHAR"/>
+        <result property="time" column="month_year" jdbcType="VARCHAR"/>
+        <result property="salary" column="basic_salary" jdbcType="VARCHAR"/>
+        <result property="bonus" column="bonus" jdbcType="VARCHAR"/>
+        <result property="cardNumber" column="deductions" jdbcType="VARCHAR"/>
+        <result property="finalSalary" column="net_salary" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,employee_id,time,
+        salary,bonus,card_number,
+        final_salary,name
+    </sql>
+
+    <select id="getAllList" resultType="pers.oneice.ssm.crud.pojo.Salary">
+        select <include refid="Base_Column_List"></include> from tb_salary
+    </select>
+
+
+</mapper>
